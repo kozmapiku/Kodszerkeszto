@@ -1,0 +1,42 @@
+﻿<Window x:Class="Kodszerkeszto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kodszerkeszto"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel LastChildFill="False">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="New"/>
+                    <MenuItem Header="Open" Command="{Binding OpenFileCommand}"/>
+                    <MenuItem Header="Save" Command="{Binding SaveFileCommand}"/>
+                    <MenuItem Header="Close"/>
+                </MenuItem>
+                <MenuItem Header="View">
+                    <MenuItem Header="Increase font size" Command="{Binding IncreaseFontSize}"/>
+                    <MenuItem Header="Decrease font size" Command="{Binding DecreaseFontSize}"/>
+                </MenuItem>
+            </Menu>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button Content="New"/>
+                    <Button Content="Open" Command="{Binding OpenFileCommand}"/>
+                    <Button Content="Save" Command="{Binding SaveFileCommand}"/>
+                    <Button Content="Close"/>
+                    <Button Content="Increase font size" Command="{Binding IncreaseFontSize}"/>
+                    <Button Content="Decrease font size" Command="{Binding DecreaseFontSize}"/>
+                </ToolBar>
+            </ToolBarTray>
+            <ScrollViewer DockPanel.Dock="Top">
+                <DockPanel LastChildFill="False" Height="388">
+                    <TextBox DockPanel.Dock="Left" FontFamily="Modern No. 20" TextAlignment="Right" Text="{Binding LineNumbers, UpdateSourceTrigger=PropertyChanged}" Width="20" FontSize="{Binding FontSize, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                    <TextBox  FontFamily="Modern No. 20" AcceptsReturn="True" AcceptsTab="True" Text="{Binding CurrentText, UpdateSourceTrigger=PropertyChanged}" FontSize="{Binding FontSize, UpdateSourceTrigger=PropertyChanged}" Width="762" VerticalAlignment="Stretch"/>
+                </DockPanel>
+            </ScrollViewer>
+        </DockPanel>
+
+    </Grid>
+</Window>
